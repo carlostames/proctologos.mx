@@ -1368,6 +1368,86 @@ a.cb-body:hover {
     scroll-behavior: auto;
   }
 
+
+/* ─── PAGE HEADER (subpages) ─── */
+.page-header {
+  padding: clamp(7rem, 12vw, 10rem) 0 clamp(3rem, 5vw, 5rem);
+  border-bottom: 1px solid var(--border);
+}
+.page-header .t-tag { margin-bottom: 1.5rem; }
+.page-header .t-h1 { max-width: 42rem; }
+.page-header-lead {
+  max-width: 38rem;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+}
+
+/* ─── PADECIMIENTOS QUICK NAV ─── */
+.padece-nav {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: var(--nav-h, 64px);
+  z-index: 90;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+}
+.padece-nav-grid {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.padece-nav-grid::-webkit-scrollbar { display: none; }
+.padece-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+.padece-nav-item:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+.padece-nav-item .pc-index {
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+/* ─── PAGE CTA (subpages) ─── */
+.page-cta {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.page-cta-inner {
+  max-width: 32rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.page-cta .t-h2 { text-align: center; }
+.page-cta .t-body {
+  color: var(--text-secondary);
+  text-align: center;
+}
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+}
+
   *,
   *::before,
   *::after {
