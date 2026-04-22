@@ -152,6 +152,7 @@ button {
   height: 100%;
   object-fit: cover;
   filter: var(--photo-filter);
+  transform: scaleX(-1);
 }
 
 .hero-scrim {
