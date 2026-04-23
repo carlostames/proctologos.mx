@@ -701,13 +701,16 @@
       align-items: center;
       flex-shrink: 0;
       opacity: 0.6;
-      filter: brightness(0) invert(1);
+      /* Invertimos color (blanco->negro), aplicamos escala de grises y aumentamos brillo. 
+         Con mix-blend-mode: screen el negro (antiguo fondo blanco) se vuelve invisible! */
+      filter: invert(1) grayscale(1) brightness(2);
+      mix-blend-mode: screen;
       transition: opacity 0.25s, filter 0.25s;
     }
 
     .seguros__logo:hover {
       opacity: 1;
-      filter: brightness(0) invert(1);
+      filter: invert(1) grayscale(1) brightness(2);
     }
 
     .seguros__logo img {
