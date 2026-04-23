@@ -12,18 +12,6 @@
   <link rel="stylesheet" href="styles.css" />
   
   <style>
-    /* ── Estilos específicos del Catálogo ── */
-    .catalog-hero {
-      padding-block: var(--s-9) var(--s-6);
-      background: radial-gradient(circle at 50% -20%, var(--accent-dark), transparent 70%), var(--ink-0);
-      text-align: center;
-      border-bottom: 1px solid var(--line);
-    }
-    
-    .catalog-hero .t-display {
-      margin-bottom: var(--s-3);
-    }
-
     .filter-nav {
       position: sticky;
       top: 72px;
@@ -279,6 +267,7 @@
 
   /* Mobile adjustments */
   @media (max-width: 800px) {
+    .page-hero { height: 60vh; }
     .page-hero-content { padding: var(--s-4); }
   }
 </style>
