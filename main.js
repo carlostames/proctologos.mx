@@ -37,6 +37,27 @@
       return firstCard.getBoundingClientRect().width + gap;
     };
 
+    let autoScrollInterval;
+    const startAutoScroll = () => {
+      autoScrollInterval = setInterval(() => {
+        const max = grid.scrollWidth - grid.clientWidth - 2;
+        if (grid.scrollLeft >= max) {
+          grid.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          grid.scrollBy({ left: cardStep(), behavior: 'smooth' });
+        }
+      }, 3500);
+    };
+
+    const stopAutoScroll = () => clearInterval(autoScrollInterval);
+
+    grid.addEventListener('mouseenter', stopAutoScroll);
+    grid.addEventListener('mouseleave', startAutoScroll);
+    grid.addEventListener('touchstart', stopAutoScroll, { passive: true });
+    grid.addEventListener('touchend', startAutoScroll, { passive: true });
+
+    startAutoScroll();
+
     prev?.addEventListener('click', () => {
       grid.scrollBy({ left: -cardStep(), behavior: 'smooth' });
     });

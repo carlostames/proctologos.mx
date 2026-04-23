@@ -467,10 +467,18 @@ button {
 }
 
 .proc-card .cta {
-  position: absolute;
-  right: var(--s-5);
-  bottom: var(--s-5);
+  margin-top: auto;
+  align-self: flex-end;
+  z-index: 10;
 }
+
+.proc-card .cta a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
 
 .procs-nav {
   display: flex;
