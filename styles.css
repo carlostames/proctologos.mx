@@ -517,9 +517,14 @@ button {
 
 .padece-card:hover {
   background: var(--ink-1);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.5);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px -10px rgba(201, 122, 42, 0.3);
+  border-color: var(--accent);
   z-index: 2;
+}
+
+.padece-card:hover .pc-title {
+  color: var(--accent);
 }
 
 .padece-card:hover .pc-link {
