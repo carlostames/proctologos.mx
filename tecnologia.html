@@ -11,6 +11,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
+    /* WhatsApp float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: var(--s-5);
+      right: var(--s-5);
+      z-index: 100;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: var(--r-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+    }
+
     :root {
       --tech-card-bg: rgba(255, 255, 255, 0.03);
       --tech-accent: #d4af37; /* Gold touch for premium feel */

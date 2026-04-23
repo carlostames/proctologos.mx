@@ -58,6 +58,30 @@
       color: var(--fg-0);
       font-weight: 500;
     }
+    
+    /* WhatsApp float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: var(--s-5);
+      right: var(--s-5);
+      z-index: 100;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: var(--r-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+    }
 
     .container-m {
       max-width: 800px;
