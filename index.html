@@ -700,14 +700,14 @@
       display: flex;
       align-items: center;
       flex-shrink: 0;
-      opacity: 0.65;
-      filter: grayscale(1) brightness(1.8);
+      opacity: 0.6;
+      filter: brightness(0) invert(1);
       transition: opacity 0.25s, filter 0.25s;
     }
 
     .seguros__logo:hover {
       opacity: 1;
-      filter: grayscale(0) brightness(1);
+      filter: brightness(0) invert(1);
     }
 
     .seguros__logo img {
