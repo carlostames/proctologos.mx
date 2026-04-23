@@ -1404,9 +1404,9 @@ a.cb-body:hover {
    FOOTER
    ===================================================== */
 .foot {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(201, 122, 42, 0.25);
   padding: var(--s-8) 0 var(--s-5);
-  background: var(--ink-0);
+  background: var(--ink-1);
 }
 
 .foot-grid {
