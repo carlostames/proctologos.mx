@@ -66,27 +66,20 @@
     });
   }
 
-  // ===== intersection reveal (subtle fade) =====
+  // ===== intersection reveal (refined) =====
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const targets = document.querySelectorAll('.reveal, .proc-card, .padece-card, .tech-card, .proc-list > li, .proc-item, .diag-flow, .pull-quote, .detail-title, .tech-headline, .intro-statement, .diag-points li');
-    targets.forEach(t => {
-      t.style.opacity = '0';
-      t.style.transform = 'translateY(12px)';
-      t.style.transition = 'opacity 600ms var(--ease-out), transform 600ms var(--ease-out)';
-    });
+    
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const delay = (entry.target._idx || i % 6) * 60;
-          setTimeout(() => {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }, delay);
+          entry.target.classList.add('active');
           io.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    targets.forEach((t, i) => { t._idx = i; io.observe(t); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    targets.forEach((t) => io.observe(t));
   }
 
   // ===== anchor offset for sticky nav =====
