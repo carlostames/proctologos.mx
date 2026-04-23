@@ -1463,6 +1463,11 @@ a.cb-body:hover {
   .nav-cta {
     display: none;
   }
+
+  /* Hide Padecimientos summary grid on mobile as per user request */
+  .padece-grid {
+    display: none !important;
+  }
 }
 
 @media (max-width: 640px) {
