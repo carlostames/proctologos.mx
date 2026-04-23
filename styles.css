@@ -1471,7 +1471,8 @@ a.cb-body:hover {
   }
 
   /* Hide Padecimientos summary grid on mobile as per user request */
-  .padece-grid {
+  .padece-grid,
+  .strip {
     display: none !important;
   }
 }
