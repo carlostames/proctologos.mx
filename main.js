@@ -68,7 +68,7 @@
 
   // ===== intersection reveal (subtle fade) =====
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const targets = document.querySelectorAll('.proc-card, .padece-card, .tech-card, .proc-list > li, .proc-item, .diag-flow, .pull-quote, .detail-title, .tech-headline, .intro-statement, .diag-points li');
+    const targets = document.querySelectorAll('.reveal, .proc-card, .padece-card, .tech-card, .proc-list > li, .proc-item, .diag-flow, .pull-quote, .detail-title, .tech-headline, .intro-statement, .diag-points li');
     targets.forEach(t => {
       t.style.opacity = '0';
       t.style.transform = 'translateY(12px)';

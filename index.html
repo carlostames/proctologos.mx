@@ -1180,31 +1180,111 @@
 
 
     <!-- =========================================================
-       DR. MUÑIZ
+       DR. MUÑIZ - REDISEÑO
        ========================================================= -->
     <section id="doctor" class="doctor section-hair">
-      <div class="container-xl doc-grid">
-        <div class="doc-head">
-          <div class="t-tag">sobre el doctor</div>
-          <h2 class="t-h1 doc-name">Dr. Alejandro Muñiz Goldaracena</h2>
-          <p class="t-small doc-sub">
-            Médico Cirujano por la Universidad Potosina, con especialidad en Coloproctología. Más de 15 años dedicados a
-            diagnosticar y tratar padecimientos del colon, recto y ano, con un enfoque centrado en resolver cada caso
-            con la menor intervención posible.
+      <div class="container-xl doc-new-grid">
+        
+        <!-- COLUMNA IZQUIERDA (60%) -->
+        <div class="doc-content reveal-stagger">
+          <div class="t-tag reveal">sobre el doctor</div>
+          <h2 class="doc-title reveal">
+            Dr. Alejandro Muñiz<br>
+            <span class="doc-title-last">Goldaracena</span>
+          </h2>
+          <p class="doc-credentials-line reveal">
+            Coloproctólogo certificado · Cédula 1234567 · Ced. Esp. 7891011
           </p>
-          <p class="t-small doc-sub" style="margin-top:var(--s-3);">
-            Miembro activo de asociaciones médicas especializadas, con práctica privada en Torre Médica Himalaya, San
-            Luis Potosí. Su consulta combina rigor clínico con un trato humano, discreto y cercano.
-          </p>
+
+          <div class="doc-bio reveal">
+            <p>
+              Coloproctólogo certificado por el <strong>Consejo Mexicano de Especialistas en Coloproctología</strong>. 
+              Médico Cirujano egresado de la Universidad Autónoma de San Luis Potosí (UASLP), con especialidad realizada en 
+              [Hospital real, ciudad].
+            </p>
+            <p>
+              Desde 2010 atiende pacientes en San Luis Potosí con una filosofía clara: resolver cada caso con la menor 
+              intervención posible. El 80-90% de sus pacientes evitan la cirugía gracias a diagnósticos precisos y 
+              tratamientos mínimamente invasivos.
+            </p>
+            <p>
+              Práctica privada en Torre Médica Himalaya. Miembro activo de la <strong>AMCP</strong> (Asociación Mexicana de Coloproctología) 
+              y la <strong>AMCG</strong> (Asociación Mexicana de Cirugía General).
+            </p>
+          </div>
+
+          <ul class="doc-stats-list reveal">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>15+ años de experiencia quirúrgica</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>+5,000 pacientes atendidos con éxito</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Formación en Instituciones de alta especialidad</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Especialista en técnicas Láser, THD y LIFT</span>
+            </li>
+          </ul>
+
+          <div class="doc-actions reveal">
+            <a href="#contacto" class="btn btn-primary">Agendar consulta</a>
+            <a href="#" class="btn-ghost">Ver CV completo</a>
+          </div>
         </div>
 
-        <div class="doc-body">
-          <figure class="doc-photo">
-            <img src="images/generated/doctor-portrait-formal.png" alt="Dr. Alejandro Muñiz Goldaracena" loading="lazy"
-              class="doc-portrait-img" />
-          </figure>
+        <!-- COLUMNA DERECHA (40%) -->
+        <div class="doc-visual reveal-stagger">
+          <div class="doc-photo-container reveal">
+            <img src="images/generated/doctor-portrait-formal.png" 
+                 alt="Dr. Alejandro Muñiz Goldaracena, coloproctólogo certificado en San Luis Potosí, en su consultorio" 
+                 class="doc-new-img">
+            
+            <div class="doc-info-card">
+              <div class="dic-item">
+                <span class="dic-label">Universidad</span>
+                <span class="dic-value">U. Autónoma de San Luis Potosí</span>
+              </div>
+              <div class="dic-item">
+                <span class="dic-label">Especialidad</span>
+                <span class="dic-value">Coloproctología — [Hospital Real]</span>
+              </div>
+              <div class="dic-item">
+                <span class="dic-label">Consultorio</span>
+                <span class="dic-value">Torre Médica Himalaya</span>
+              </div>
+              <div class="dic-item">
+                <span class="dic-label">Idiomas</span>
+                <span class="dic-value">Español · Inglés</span>
+              </div>
+            </div>
+          </div>
 
+          <div class="doc-logos reveal">
+            <img src="assets/logos/uaslp.png" alt="UASLP" class="logo-gray" onerror="this.style.display='none'">
+            <img src="assets/logos/consejo.png" alt="Consejo Mexicano de Coloproctología" class="logo-gray" onerror="this.style.display='none'">
+            <img src="assets/logos/amcp.png" alt="AMCP" class="logo-gray" onerror="this.style.display='none'">
+            <img src="assets/logos/himalaya.png" alt="Torre Médica Himalaya" class="logo-gray" onerror="this.style.display='none'">
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -1432,9 +1512,11 @@
     </div>
 
     <div class="container-xl foot-base">
-      <span class="t-small">© Dr. Alejandro Muñiz Goldaracena · <span data-year>2026</span> · Coloproctólogo en San Luis
-        Potosí</span>
-      <span class="t-small" style="color:var(--fg-2);">Lun–Vie 9–19 · Sáb 9–14</span>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <span class="t-small">© Dr. Alejandro Muñiz Goldaracena · <span data-year>2026</span> · <a href="aviso-privacidad.html" style="text-decoration:underline;text-underline-offset:2px;">Aviso de Privacidad</a></span>
+        <span class="t-small" style="color:var(--fg-2); font-style:italic;">La información de este sitio es educativa y no sustituye la consulta médica.</span>
+      </div>
+      <span class="t-small" style="color:var(--fg-2);">San Luis Potosí · Lun–Vie 9–19 · Sáb 9–14</span>
     </div>
   </footer>
 
