@@ -1405,6 +1405,12 @@ a.cb-body:hover {
 }
 
 @media (max-width: 900px) {
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   /* Mobile Nav Logic */
   .nav-toggle {
     display: flex !important;
