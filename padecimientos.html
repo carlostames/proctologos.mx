@@ -80,14 +80,26 @@
     }
 
     .c-card:hover {
+      background: var(--accent);
       border-color: var(--accent);
-      background: var(--ink-2);
       transform: translateY(-8px);
-      box-shadow: 0 12px 30px -10px rgba(201, 122, 42, 0.3);
+      box-shadow: 0 12px 40px -10px rgba(201, 122, 42, 0.5);
     }
 
-    .c-card:hover .c-card__title {
-      color: var(--accent);
+    .c-card:hover .c-card__title,
+    .c-card:hover .c-card__cat,
+    .c-card:hover .c-card__body p,
+    .c-card:hover .c-symptom {
+      color: #fff;
+    }
+
+    .c-card:hover .c-symptom {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .c-card:hover .link-arrow {
+      color: #fff;
     }
 
     .c-card__header {

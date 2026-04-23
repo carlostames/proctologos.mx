@@ -516,20 +516,22 @@ button {
 }
 
 .padece-card:hover {
-  background: var(--ink-1);
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px -10px rgba(201, 122, 42, 0.3);
+  background: var(--accent);
   border-color: var(--accent);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px -10px rgba(201, 122, 42, 0.5);
   z-index: 2;
 }
 
-.padece-card:hover .pc-title {
-  color: var(--accent);
+.padece-card:hover .pc-title,
+.padece-card:hover .pc-lead,
+.padece-card:hover .pc-index {
+  color: #fff;
 }
 
 .padece-card:hover .pc-link {
-  color: var(--accent-hi);
-  transform: translateX(4px);
+  color: #fff;
+  transform: translateX(6px);
 }
 
 .padece-card .pc-index {
