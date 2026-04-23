@@ -1,0 +1,183 @@
+/* =============================================================
+   Proctólogos.mx — Design tokens
+   Dark-first · single accent (amber) · B&W photography
+   Font: Inter Tight (Google Fonts substitution)
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---------- Color — ground ---------- */
+  --ink-0: #0A0A0B;
+  --ink-1: #121214;
+  --ink-2: #1B1B1E;
+
+  /* ---------- Color — foreground ---------- */
+  --fg-0: #FFFFFF;
+  --fg-1: #B8B8BC;
+  --fg-2: #6F6F75;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.25);
+
+  /* ---------- Color — accent (amber, adjusted from logo) ---------- */
+  --accent:      #C97A2A;  /* primary amber */
+  --accent-hi:   #E08F3D;  /* hover / active up */
+  --accent-lo:   #9B5C1E;  /* pressed */
+  --accent-dark: #6E3D12;  /* deep amber for pressed text bg */
+  --accent-soft: #E8B888;  /* kicker / subtle on amber surface */
+  --accent-peach:#FFE0BF;  /* faint text on dark amber */
+
+  /* Back-compat aliases used across older files */
+  --accent-wine:    var(--accent);
+  --accent-wine-hi: var(--accent-hi);
+  --accent-wine-lo: var(--accent-lo);
+  --accent-rose:    var(--accent-soft);
+
+  /* ---------- Color — paper ---------- */
+  --paper:     #F5EFE9;
+  --paper-ink: #17161A;
+
+  /* ---------- Semantic roles ---------- */
+  --bg:          var(--ink-0);
+  --bg-alt:      var(--ink-1);
+  --surface:     var(--ink-2);
+  --text:        var(--fg-0);
+  --text-muted:  var(--fg-1);
+  --text-meta:   var(--fg-2);
+  --border:      var(--line);
+
+  /* ---------- Type ---------- */
+  --font-display: 'Inter Tight', 'Söhne', ui-sans-serif, system-ui, sans-serif;
+  --font-body:    var(--font-display);
+  --font-mono:    ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --t-display: clamp(3rem, 8vw, 7rem);
+  --t-h1:      clamp(2.25rem, 5vw, 4rem);
+  --t-h2:      clamp(1.75rem, 3.2vw, 2.5rem);
+  --t-h3:      1.375rem;
+  --t-body:    1.0625rem;
+  --t-small:   0.875rem;
+  --t-tag:     0.8125rem;
+  --t-btn:     0.9375rem;
+
+  --lh-display: 0.96;
+  --lh-h1:      1.04;
+  --lh-h2:      1.1;
+  --lh-h3:      1.2;
+  --lh-body:    1.6;
+  --lh-tight:   1.0;
+
+  /* ---------- Spacing ---------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 16px; --s-4: 24px; --s-5: 32px;
+  --s-6: 48px; --s-7: 64px; --s-8: 96px; --s-9: 128px; --s-10: 192px;
+
+  /* ---------- Radii ---------- */
+  --r-1: 2px; --r-2: 6px; --r-3: 14px; --r-4: 22px; --r-pill: 999px;
+
+  /* ---------- Elevation ---------- */
+  --e-0: none;
+  --e-1: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --e-2: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+  --e-focus: 0 0 0 2px var(--accent-hi);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 160ms;
+  --dur-base: 240ms;
+  --dur-slow: 600ms;
+
+  /* ---------- Photography filter (B&W treatment) ---------- */
+  --photo-filter: grayscale(1) contrast(1.08) brightness(.95);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent); color: var(--fg-0); }
+
+/* Apply B&W filter to all photographic imagery by default */
+img.photo, .photo > img, img[data-photo] { filter: var(--photo-filter); }
+
+.t-display { font-family: var(--font-display); font-size: var(--t-display); font-weight: 400; line-height: var(--lh-display); letter-spacing: -0.02em; }
+.t-h1      { font-family: var(--font-display); font-size: var(--t-h1); font-weight: 400; line-height: var(--lh-h1); letter-spacing: -0.015em; }
+.t-h2      { font-family: var(--font-display); font-size: var(--t-h2); font-weight: 500; line-height: var(--lh-h2); letter-spacing: -0.01em; }
+.t-h3      { font-family: var(--font-display); font-size: var(--t-h3); font-weight: 500; line-height: var(--lh-h3); letter-spacing: -0.005em; }
+.t-body    { font-size: var(--t-body); line-height: var(--lh-body); font-weight: 400; }
+.t-small   { font-size: var(--t-small); line-height: 1.5; font-weight: 400; color: var(--text-muted); }
+.t-tag     { 
+  font-size: var(--t-tag); 
+  font-weight: 600; 
+  letter-spacing: 0.1em; 
+  line-height: var(--lh-tight); 
+  color: var(--fg-1); 
+  text-transform: uppercase; 
+}
+.t-tag::before { content: '// '; color: var(--accent); font-weight: 700; }
+
+.t-two-tone > .em { color: var(--fg-0); }
+.t-two-tone > .de { color: var(--fg-1); }
+
+.hairline { border-top: 1px solid var(--border); }
+.container-xl { max-width: 1440px; margin: 0 auto; padding-inline: var(--s-8); }
+@media (max-width: 800px) { .container-xl { padding-inline: var(--s-4); } }
+
+.btn {
+  font-family: var(--font-display); font-size: var(--t-btn); font-weight: 500; line-height: 1;
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  padding: 14px 20px; border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong); background: transparent; color: var(--fg-0);
+  cursor: pointer;
+  transition: border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+}
+.btn:hover  { border-color: rgba(255,255,255,.6); }
+.btn:active { opacity: .92; }
+.btn:focus-visible { outline: none; box-shadow: var(--e-focus); }
+
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-primary:hover  { background: var(--accent-hi); border-color: var(--accent-hi); }
+.btn-primary:active { background: var(--accent-lo); }
+
+.btn-round {
+  width: 44px; height: 44px; padding: 0; border-radius: var(--r-pill);
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line-strong); background: transparent; color: var(--fg-0); cursor: pointer;
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+.btn-round:hover { border-color: rgba(255,255,255,.6); }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: var(--s-3);
+  color: var(--fg-0); text-decoration: none;
+  padding: var(--s-2) 0; border-bottom: 1px solid var(--line);
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+.link-arrow:hover { border-color: var(--accent-soft); }
+.link-arrow .arrow { width: 28px; height: 28px; border-radius: var(--r-pill); display: inline-flex; align-items: center; justify-content: center; }
+
+.input {
+  font-family: var(--font-body); font-size: var(--t-body);
+  background: transparent; color: var(--fg-0);
+  border: 1px solid var(--line-strong); border-radius: var(--r-pill);
+  padding: 16px 22px; width: 100%;
+  transition: border-color var(--dur-base) var(--ease-out);
+}
+.input::placeholder { color: var(--fg-2); }
+.input:focus        { outline: none; border-color: rgba(255,255,255,.6); }
+
+.proc-card {
+  position: relative; background: var(--accent);
+  border-radius: var(--r-4); padding: var(--s-5);
+  aspect-ratio: 3 / 4; display: flex; flex-direction: column;
+  color: var(--fg-0); overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.proc-card:hover { transform: translateY(-2px); box-shadow: var(--e-2); }
+.proc-card .kicker { color: var(--accent-peach); }
+.proc-card .title  { font-size: var(--t-h2); font-weight: 400; line-height: 1.1; margin-top: var(--s-2); letter-spacing: -0.01em; max-width: 14ch; }
+.proc-card .cta    { position: absolute; right: var(--s-5); bottom: var(--s-5); }

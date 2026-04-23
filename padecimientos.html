@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo de Padecimientos · Dr. Alejandro Muñiz</title>
+  <meta name="description" content="Directorio completo de padecimientos coloproctológicos. Encuentre información clara y opciones de tratamiento para hemorroides, fístulas, fisuras y más." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="stylesheet" href="styles.css" />
+  
+  <style>
+    /* ── Estilos específicos del Catálogo ── */
+    .catalog-hero {
+      padding-block: var(--s-9) var(--s-6);
+      background: radial-gradient(circle at 50% -20%, var(--accent-dark), transparent 70%), var(--ink-0);
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+    
+    .catalog-hero .t-display {
+      margin-bottom: var(--s-3);
+    }
+
+    .filter-nav {
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+      background: rgba(10, 10, 11, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding-block: var(--s-3);
+    }
+
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .filter-container::-webkit-scrollbar { display: none; }
+
+    .filter-btn {
+      background: var(--ink-1);
+      border: 1px solid var(--line);
+      color: var(--fg-1);
+      padding: 8px 18px;
+      border-radius: var(--r-pill);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all var(--dur-base) var(--ease-out);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--line-strong);
+      color: var(--fg-0);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .catalog-section {
+      padding-block: var(--s-7);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: var(--s-4);
+    }
+
+    .c-card {
+      background: var(--ink-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-3);
+      padding: var(--s-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-4);
+      transition: all var(--dur-base) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .c-card:hover {
+      border-color: var(--accent);
+      background: var(--ink-2);
+      transform: translateY(-4px);
+      box-shadow: var(--e-2);
+    }
+
+    .c-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .c-card__cat {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .c-card__urgency {
+      background: rgba(255, 77, 77, 0.1);
+      color: #ff4d4d;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .c-card__title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      margin: 0;
+      line-height: 1.1;
+      color: var(--fg-0);
+    }
+
+    .c-card__body p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--fg-1);
+      margin: 0;
+    }
+
+    .c-card__symptoms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .c-symptom {
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--fg-2);
+      padding: 3px 10px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--line);
+    }
+
+    .c-card__footer {
+      margin-top: auto;
+      padding-top: var(--s-3);
+      border-top: 1px solid var(--line);
+    }
+
+    /* Floating help */
+    .help-cta {
+      position: fixed;
+      bottom: var(--s-5);
+      left: var(--s-5);
+      z-index: 100;
+      background: var(--ink-2);
+      border: 1px solid var(--accent);
+      padding: 12px 20px;
+      border-radius: var(--r-pill);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--e-2);
+      text-decoration: none;
+      color: var(--fg-0);
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform var(--dur-base);
+    }
+
+    .help-cta:hover {
+      transform: scale(1.03);
+    }
+
+    .help-pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .help-pulse::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .catalog-hero { padding-block: var(--s-7) var(--s-5); }
+      .catalog-grid { grid-template-columns: 1fr; gap: var(--s-3); }
+      .filter-nav { top: 68px; padding-block: var(--s-2); }
+      .filter-container { justify-content: flex-start; padding-inline: var(--s-4); gap: 8px; }
+      .filter-btn { padding: 6px 14px; font-size: 12px; }
+      .c-card { padding: var(--s-4); min-height: auto; }
+      .c-card__title { font-size: 20px; }
+      .help-cta { left: var(--s-3); right: var(--s-3); bottom: var(--s-3); font-size: 13px; padding: 10px 16px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" data-nav>
+  <div class="container-xl nav-inner">
+    <a class="nav__logo-link" href="index.html" aria-label="Dr. Alejandro Muñiz">
+      <img src="assets/nuevo-logo.png" alt="Dr. Alejandro Muñiz Goldaracena · Coloproctología" style="height:38px;width:auto;display:block;" />
+    </a>
+
+    <button class="nav-toggle" data-burger aria-label="Menú" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <div class="nav-links" data-links>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#doctor">Dr. Muñiz</a>
+      <a href="padecimientos.html" class="active" style="color:var(--accent);">Padecimientos</a>
+      <a href="tecnologia.html">Tecnologías</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="index.html#contacto" class="btn btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+        </svg>
+        <span>Agendar cita</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .page-hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    text-align: center;
+  }
+
+  .page-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    filter: grayscale(100%) contrast(1.2) brightness(0.8);
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    padding: var(--s-8);
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 800px) {
+    .page-hero-content { padding: var(--s-4); }
+  }
+</style>
+
+<main>
+  <!-- ─── PAGE HERO ─── -->
+  <header class="page-hero">
+    <img src="assets/consultorio_procto_v2.png" alt="Consultorio Proctológico Dr. Muñiz" class="page-hero-img">
+    <div class="page-hero-content">
+      <h1 class="t-h1">Padecimientos y <span style="font-weight:300; opacity:0.7;">soluciones.</span></h1>
+      <p class="t-body" style="color: rgba(255,255,255,0.8); margin-top: var(--s-4);">
+        Hemos organizado este catálogo para ayudarte a identificar tu malestar y conocer las opciones de tratamiento actuales, priorizando siempre la mínima invasión.
+      </p>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       ASEGURADORAS Y TECNOLOGÍA
+       ========================================================= -->
+
+
+  <nav class="filter-nav">
+    <div class="container-xl filter-container">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="urgencia">Urgencias</button>
+      <button class="filter-btn" data-filter="comun">Lo más común</button>
+      <button class="filter-btn" data-filter="cronico">Crónico</button>
+      <button class="filter-btn" data-filter="prevencion">Prevención</button>
+    </div>
+  </nav>
+
+  <section class="catalog-section container-xl">
+    <div class="catalog-grid" id="catalog-grid">
+      
+      <!-- Hemorroides -->
+      <article class="c-card" data-cat="comun">
+        <div class="c-card__header">
+          <span class="c-card__cat">Padecimiento común</span>
+        </div>
+        <h3 class="c-card__title">Hemorroides</h3>
+        <div class="c-card__symptoms">
+          <span class="c-symptom">Sangrado al evacuar</span>
+          <span class="c-symptom">Bulto externo</span>
+          <span class="c-symptom">Comezón</span>
+        </div>
+        <div class="c-card__body">
+          <p>Tratamos desde casos leves con ligadura en consultorio hasta casos avanzados con Láser de Diodo o THD Doppler. En el 90% de los casos resolvemos sin cirugía abierta.</p>
+        </div>
+        <div class="c-card__footer">
+          <a href="index.html#contacto" class="link-arrow">
+            <span>Agendar valoración</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Fisura Anal -->
+      <article class="c-card" data-cat="comun">
+        <div class="c-card__header">
+          <span class="c-card__cat">Dolor agudo</span>
+        </div>
+        <h3 class="c-card__title">Fisura Anal</h3>
+        <div class="c-card__symptoms">
+          <span class="c-symptom">Dolor intenso</span>
+          <span class="c-symptom">Ardor post-evacuación</span>
+        </div>
+        <div class="c-card__body">
+          <p>Heridas en el canal anal que suelen confundirse con hemorroides. El diagnóstico correcto permite usar tratamientos tópicos de alta eficacia o toxina botulínica.</p>
+        </div>
+        <div class="c-card__footer">
+          <a href="index.html#contacto" class="link-arrow">
+            <span>Aliviar el dolor</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Absceso Anal -->
+      <article class="c-card" data-cat="urgencia">
+        <div class="c-card__header">
+          <span class="c-card__cat">Urgencia médica</span>
+          <span class="c-card__urgency">Prioritario</span>
+        </div>
+        <h3 class="c-card__title">Absceso Anal</h3>
+        <div class="c-card__symptoms">
+          <span class="c-symptom">Fiebre</span>
+          <span class="c-symptom">Hinchazón</span>
+          <span class="c-symptom">Dolor punzante</span>
+        </div>
+        <div class="c-card__body">
+          <p>Acumulación de pus que requiere drenaje inmediato. Ignorarlo puede llevar a fístulas complejas o infecciones severas. Atención en menos de 24h.</p>
+        </div>
+        <div class="c-card__footer">
+          <a href="index.html#contacto" class="link-arrow">
+            <span style="color:#ff4d4d;">Atención inmediata</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Fístula Anal -->
+      <article class="c-card" data-cat="cronico">
+        <div class="c-card__header">
+          <span class="c-card__cat">Complejidad</span>
+        </div>
+        <h3 class="c-card__title">Fístula Anal</h3>
+        <div class="c-card__symptoms">
+          <span class="c-symptom">Salida de líquido/pus</span>
+          <span class="c-symptom">Manchado constante</span>
+        </div>
+        <div class="c-card__body">
+          <p>Conductos anormales que requieren cirugía especializada. Utilizamos VAAFT (video-asistencia) y LIFT para curar la fístula sin dañar el esfínter.</p>
+        </div>
+        <div class="c-card__footer">
+          <a href="index.html#contacto" class="link-arrow">
+            <span>Ver opciones de cura</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Estreñimiento -->
+      <article class="c-card" data-cat="cronico">
+        <div class="c-card__header">
+          <span class="c-card__cat">Calidad de vida</span>
+        </div>
+        <h3 class="c-card__title">Estreñimiento Crónico</h3>
+        <div class="c-card__symptoms">
+          <span class="c-symptom">Dificultad constante</span>
+          <span class="c-symptom">Esfuerzo excesivo</span>
+        </div>
+        <div class="c-card__body">
+          <p>No es normal vivir con inflamación. Analizamos la causa funcional y diseñamos un plan médico y nutricional para recuperar el ritmo natural.</p>
+        </div>
+        <div class="c-card__footer">
+          <a href="index.html#contacto" class="link-arrow">
+            <span>Mejorar mi digestión</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Cáncer Prevención -->
+      <article class="c-card" data-cat="prevencion">
+        <div class="c-card__header">
+          <span class="c-card__cat">Tamizaje</span>
+        </div>
+        <h3 class="c-card__title">Cáncer de Colon</h3>
+        <div class="c-card__symptoms">
+          <span class="c-symptom">Cambio en hábitos</span>
+          <span class="c-symptom">Pérdida de peso</span>
+        </div>
+        <div class="c-card__body">
+          <p>Si tienes más de 45 años o antecedentes, una colonoscopía de tamizaje puede salvar tu vida. Detectamos y retiramos pólipos antes de que sean cáncer.</p>
+        </div>
+        <div class="c-card__footer">
+          <a href="index.html#contacto" class="link-arrow">
+            <span>Agendar detección</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<a href="https://wa.me/524441301793" class="help-cta">
+  <div class="help-pulse"></div>
+  <span>¿No encuentras lo que buscas? Chatea con nosotros</span>
+</a>
+
+<footer class="foot">
+  <div class="container-xl foot-grid">
+    <div class="foot-col">
+      <img src="assets/nuevo-logo.png" alt="Dr. Alejandro Muñiz Goldaracena" style="height:42px;width:auto;display:block;margin-bottom:var(--s-4);object-fit:contain;" />
+      <p class="t-small" style="color:var(--fg-2);line-height:1.6;max-width:30ch;">
+        Especialista en cirugía general y coloproctología. Atención integral con tecnología de mínima invasión.
+      </p>
+    </div>
+
+    <div class="foot-col">
+      <span class="t-tag">padecimientos</span>
+      <a href="padecimientos.html">Hemorroides</a>
+      <a href="padecimientos.html">Fístula anal</a>
+      <a href="padecimientos.html">Fisuras y dolor</a>
+      <a href="padecimientos.html">Absceso anorectal</a>
+      <a href="padecimientos.html">Cáncer colorrectal</a>
+      <a href="padecimientos.html">Estreñimiento crónico</a>
+    </div>
+
+    <div class="foot-col">
+      <span class="t-tag">navegación</span>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#doctor">Dr. Muñiz</a>
+      <a href="tecnologia.html">Tecnologías</a>
+      <a href="index.html#faq">Preguntas frecuentes</a>
+    </div>
+
+    <div class="foot-col">
+      <span class="t-tag">contacto</span>
+      <a href="https://wa.me/524441301793">WhatsApp: 444 130 1793</a>
+      <span class="t-small" style="display:block;margin-top:8px;">Torre Médica Himalaya, SLP.</span>
+    </div>
+  </div>
+
+  <div class="container-xl foot-base">
+    <span class="t-small">© 2026 Dr. Alejandro Muñiz Goldaracena. Todos los derechos reservados.</span>
+    <div style="display:flex;gap:var(--s-4);">
+      <a href="#" class="t-small">Aviso de Privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Filtrado lógico
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.c-card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Activar botón
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.style.display = 'flex';
+          setTimeout(() => card.style.opacity = '1', 10);
+        } else {
+          card.style.opacity = '0';
+          setTimeout(() => card.style.display = 'none', 300);
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
