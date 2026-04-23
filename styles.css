@@ -1404,6 +1404,69 @@ a.cb-body:hover {
   }
 }
 
+@media (max-width: 900px) {
+  /* Mobile Nav Logic */
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    z-index: 100;
+  }
+
+  .nav-toggle span {
+    width: 22px;
+    height: 1.5px;
+    background: var(--fg-0);
+    transition: all 0.3s var(--ease-out);
+  }
+
+  .nav.is-open .nav-toggle span:nth-child(1) {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .nav.is-open .nav-toggle span:nth-child(2) {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--ink-0);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--s-8) var(--s-6);
+    gap: var(--s-7);
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out);
+  }
+
+  .nav.is-open .nav-links {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+
 /* =====================================================
    REDUCED MOTION
    ===================================================== */
