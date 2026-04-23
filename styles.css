@@ -313,12 +313,19 @@ button {
   background: var(--ink-1);
   border: 1px solid var(--line);
   border-radius: var(--r-3);
-  transition: border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+  transition: background var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
 
 .benefit-pill:hover {
-  border-color: var(--accent-lo);
+  background: var(--accent);
+  border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(201, 122, 42, 0.4);
+}
+
+.benefit-pill:hover span,
+.benefit-pill:hover svg {
+  color: #fff !important;
 }
 
 .benefit-pill span {
