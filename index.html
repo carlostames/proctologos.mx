@@ -701,16 +701,15 @@
       align-items: center;
       flex-shrink: 0;
       opacity: 0.6;
-      /* Invertimos color (blanco->negro), aplicamos escala de grises y aumentamos brillo. 
-         Con mix-blend-mode: screen el negro (antiguo fondo blanco) se vuelve invisible! */
+      /* Ajuste para que los logos se vean blancos/plateados sobre fondo oscuro */
       filter: invert(1) grayscale(1) brightness(2);
       mix-blend-mode: screen;
-      transition: opacity 0.25s, filter 0.25s;
+      transition: opacity 0.25s, transform 0.25s;
     }
 
     .seguros__logo:hover {
       opacity: 1;
-      filter: invert(1) grayscale(1) brightness(2);
+      transform: scale(1.05);
     }
 
     .seguros__logo img {
@@ -839,10 +838,66 @@
     </section>
 
     <!-- =========================================================
-       ASEGURADORAS
+       TICKER DE TECNOLOGÍA Y SEGUROS
        ========================================================= -->
-    <div class="seguros" aria-label="Aseguradoras aceptadas">
-      <div class="seguros__head">Trabajamos con tu seguro</div>
+    <div class="seguros" aria-label="Tecnologías y Aseguradoras">
+      <!-- Ticker de Tecnologías (Texto) -->
+      <div class="seguros__track-wrap" style="padding: 12px 0; border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.03);">
+        <div class="seguros__track" style="animation-duration: 40s; gap: 32px;">
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">Láser de Diodo</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">LigaSure</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">Bisturí Armónico</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">THD Doppler</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">HAL-RAR</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">VAAFT</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">SiLaC</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">EPSiT</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">TAMIS</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">PRP</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">Ultrasonido Endoanal</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">Anoscopía de Alta Resolución</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          
+          <!-- Duplicado para loop -->
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">Láser de Diodo</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">LigaSure</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">Bisturí Armónico</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">THD Doppler</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">HAL-RAR</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">VAAFT</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">SiLaC</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">EPSiT</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">TAMIS</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">PRP</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">Ultrasonido Endoanal</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+          <span class="seguros__logo-text" style="font-size: 13px; opacity: 0.8; letter-spacing: 0.05em;">Anoscopía de Alta Resolución</span>
+          <div class="seguros__divider" style="height: 4px; width: 4px; border-radius: 50%; background: var(--accent);"></div>
+        </div>
+      </div>
+
+      <!-- Ticker de Seguros (Logos) -->
       <div class="seguros__track-wrap">
         <div class="seguros__track">
           <!-- Set 1 -->

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnología Médica de Vanguardia | Dr. Alejandro Muñiz</title>
+  <meta name="description" content="Conoce la tecnología de mínima invasión y precisión quirúrgica empleada por el Dr. Alejandro Muñiz en San Luis Potosí. Láser, Doppler y Video-asistencia.">
+  <link rel="stylesheet" href="colors_and_type.css">
+  <link rel="stylesheet" href="styles.css?v=1.4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* WhatsApp float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: var(--s-5);
+      right: var(--s-5);
+      z-index: 100;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: var(--r-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    :root {
+      --tech-card-bg: rgba(255, 255, 255, 0.03);
+      --tech-accent: #d4af37; /* Gold touch for premium feel */
+    }
+
+    .tech-hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    .tech-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      filter: grayscale(100%) contrast(1.2) brightness(0.8);
+    }
+
+    .tech-hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      padding: 0 var(--s-4);
+    }
+
+    .tech-hero .t-tag {
+      color: var(--accent);
+      border-color: var(--accent);
+      margin-bottom: var(--s-4);
+    }
+
+    .tech-intro {
+      padding: var(--s-10) 0;
+      background: var(--ink-0);
+    }
+
+    .tech-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--s-6);
+      margin-top: var(--s-8);
+    }
+
+    .tech-feature-card {
+      background: var(--ink-1);
+      border: 1px solid var(--line);
+      border-radius: var(--r-3);
+      overflow: hidden;
+      transition: all 0.4s var(--ease-out);
+    }
+
+    .tech-feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .tech-feature-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tech-feature-body {
+      padding: var(--s-6);
+    }
+
+    .tech-feature-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      margin-bottom: var(--s-3);
+      color: var(--fg-0);
+    }
+
+    .tech-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(var(--accent-rgb), 0.1);
+      color: var(--accent);
+      border-radius: var(--r-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: var(--s-4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tech-benefits {
+      background: linear-gradient(to bottom, var(--ink-0), var(--ink-1));
+      padding: var(--s-10) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: var(--s-5);
+      margin-bottom: var(--s-6);
+    }
+
+    .benefit-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--ink-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .tech-hero { height: 60vh; }
+      .tech-hero h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       NAV
+       ========================================================= -->
+  <nav class="nav" data-nav>
+    <div class="container-xl nav-inner">
+      <a class="nav__logo-link" href="index.html#top" aria-label="Dr. Alejandro Muñiz">
+        <img src="assets/nuevo-logo.png" alt="Dr. Alejandro Muñiz Goldaracena · Coloproctología" style="height:38px;width:auto;display:block;" />
+      </a>
+
+      <button class="nav-toggle" data-burger aria-label="Menú" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <div class="nav-links" data-links>
+        <a href="index.html#top">Inicio</a>
+        <a href="index.html#doctor">Dr. Muñiz</a>
+        <a href="padecimientos.html">Padecimientos</a>
+        <a href="tecnologia.html" class="active" style="color:var(--accent);">Tecnologías</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="index.html#contacto" class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+          <span>Agendar cita</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ─── TECH HERO ─── -->
+    <header class="tech-hero">
+      <img src="assets/tech/hero.png" alt="Tecnología Quirúrgica" class="tech-hero-img">
+      <div class="tech-hero-content">
+        <h1 class="t-h1">Precisión que <span style="font-weight:300; opacity:0.7;">redefine la cirugía.</span></h1>
+        <p class="t-body" style="color: rgba(255,255,255,0.8); margin-top: var(--s-4);">
+          La diferencia entre un procedimiento convencional y uno de vanguardia reside en la tecnología empleada. En nuestra clínica, cada herramienta está seleccionada para maximizar la seguridad y el confort del paciente.
+        </p>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         ASEGURADORAS Y TECNOLOGÍA
+         ========================================================= -->
+
+
+    <!-- ─── TECH EXPLORATION ─── -->
+    <section class="tech-intro container-xl">
+      <div style="max-width: 700px;">
+        <div class="t-tag">nuestro arsenal</div>
+        <h2 class="t-h1" style="margin-top: var(--s-3);">Equipamiento de <span class="em">mínima invasión.</span></h2>
+        <p class="t-body" style="margin-top: var(--s-4); color: var(--fg-1);">
+          Utilizamos tecnología de estándar internacional para tratar padecimientos coloproctológicos de forma ambulatoria, reduciendo drásticamente el dolor postoperatorio.
+        </p>
+      </div>
+
+      <div class="tech-feature-grid">
+        <!-- Laser -->
+        <article class="tech-feature-card">
+          <img src="assets/tech/laser_clean.png" alt="Láser de Diodo" class="tech-feature-img">
+          <div class="tech-feature-body">
+            <span class="tech-badge">Preferido</span>
+            <h3>Láser de Diodo</h3>
+            <p class="t-small" style="color: var(--fg-2);">
+              Fotocoagulación controlada para hemorroides y quistes pilonidales. Sella el tejido sin necesidad de cortes externos o suturas dolorosas.
+            </p>
+            <ul class="tech-feats" style="margin-top: var(--s-4); list-style: none; padding: 0;">
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Recuperación en 24-48 horas</li>
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Sin sangrado significativo</li>
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Procedimiento ambulatorio</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- THD -->
+        <article class="tech-feature-card">
+          <img src="assets/tech/hero.png" alt="THD Doppler" class="tech-feature-img" style="filter: hue-rotate(45deg);">
+          <div class="tech-feature-body">
+            <span class="tech-badge">Alta Precisión</span>
+            <h3>THD Doppler / HAL-RAR</h3>
+            <p class="t-small" style="color: var(--fg-2);">
+              Desarterialización guiada por ultrasonido. Localizamos la arteria exacta para tratar el problema desde la raíz sin extirpar tejido sano.
+            </p>
+            <ul class="tech-feats" style="margin-top: var(--s-4); list-style: none; padding: 0;">
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Preserva la anatomía nativa</li>
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Dolor postoperatorio mínimo</li>
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Ideal para grados avanzados</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- VAAFT -->
+        <article class="tech-feature-card">
+          <img src="assets/tech/vaaft.png" alt="VAAFT" class="tech-feature-img">
+          <div class="tech-feature-body">
+            <span class="tech-badge">Innovación</span>
+            <h3>VAAFT (Video-asistencia)</h3>
+            <p class="t-small" style="color: var(--fg-2);">
+              Tratamiento de fístulas anales bajo visión directa con micro-cámaras. Nos permite ver lo que antes era invisible, aumentando la tasa de éxito.
+            </p>
+            <ul class="tech-feats" style="margin-top: var(--s-4); list-style: none; padding: 0;">
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Sin grandes heridas quirúrgicas</li>
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Máxima protección del esfínter</li>
+              <li style="font-size: 0.8rem; margin-bottom: 5px;">• Visión HD del trayecto fistuloso</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ─── WHY TECHNOLOGY ─── -->
+    <section class="tech-benefits">
+      <div class="container-xl">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto var(--s-8);">
+          <div class="t-tag">beneficios reales</div>
+          <h2 class="t-h2">¿Por qué elegir una cirugía de alta tecnología?</h2>
+        </div>
+
+        <div class="tech-feature-grid">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div>
+              <h4 class="t-h3">Seguridad superior</h4>
+              <p class="t-small" style="color: var(--fg-2);">Menor riesgo de complicaciones e infecciones gracias a equipos que sellan vasos sanguíneos al instante.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div>
+              <h4 class="t-h3">Recuperación rápida</h4>
+              <p class="t-small" style="color: var(--fg-2);">La mayoría de nuestros pacientes se reincorporan a su vida laboral en menos de 72 horas.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4 class="t-h3">Trato humano y moderno</h4>
+              <p class="t-small" style="color: var(--fg-2);">Menos dolor significa una mejor experiencia emocional durante todo el proceso de curación.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="foot">
+    <div class="container-xl foot-grid">
+      <div class="foot-brand">
+        <img src="assets/nuevo-logo.png" alt="Dr. Alejandro Muñiz Goldaracena"
+          style="height:42px;width:auto;display:block;margin-bottom:var(--s-4);object-fit:contain;" />
+        <p class="t-small" style="color:var(--fg-2);line-height:1.6;max-width:30ch;">
+          Especialista en cirugía general y coloproctología. Atención integral con tecnología de mínima invasión.
+        </p>
+      </div>
+
+      <div class="foot-col">
+        <span class="t-tag">padecimientos</span>
+        <a href="padecimientos.html">Hemorroides</a>
+        <a href="padecimientos.html">Fístula anal</a>
+        <a href="padecimientos.html">Fisuras y dolor</a>
+        <a href="padecimientos.html">Absceso anorectal</a>
+        <a href="padecimientos.html">Cáncer colorrectal</a>
+        <a href="padecimientos.html">Estreñimiento crónico</a>
+      </div>
+
+      <div class="foot-col">
+        <span class="t-tag">consultorio</span>
+        <a href="index.html#doctor">Dr. Muñiz</a>
+        <a href="index.html#diagnostico">Diagnóstico</a>
+        <a href="index.html#tecnologia">Tecnología</a>
+        <a href="index.html#faq">Preguntas frecuentes</a>
+      </div>
+
+      <div class="foot-col">
+        <span class="t-tag">contacto</span>
+        <a href="tel:4441301793">444 130 1793</a>
+        <a href="https://wa.me/524441301793" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="index.html#contacto">Agendar cita</a>
+        <span style="font-size:13px;color:var(--fg-2);margin-top:4px;">Cordillera Himalaya 455, int. 4<br />Torre Médica
+          Himalaya · SLP</span>
+      </div>
+    </div>
+
+    <div class="container-xl foot-base">
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <span class="t-small">© Dr. Alejandro Muñiz Goldaracena · <span data-year>2026</span> · <a href="aviso-privacidad.html" style="text-decoration:underline;text-underline-offset:2px;">Aviso de Privacidad</a></span>
+        <span class="t-small" style="color:var(--fg-2); font-style:italic;">La información de este sitio es educativa y no sustituye la consulta médica.</span>
+      </div>
+      <span class="t-small" style="color:var(--fg-2);">San Luis Potosí · Lun–Vie 9–19 · Sáb 9–14</span>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/524441301793" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.852.448-1.271.607-1.445.159-.173.346-.217.462-.217h.332c.106 0 .249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.101-.177.211-.077.383.101.173.448.739.961 1.192.66.582 1.213.762 1.386.848.173.087.274.072.376-.043.101-.116.434-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z" />
+      <path
+        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 19c-1.315 0-2.545-.341-3.621-.937l-4.103 1.077 1.101-4.015c-.655-1.11-1.037-2.404-1.037-3.788.001-4.12 3.344-7.464 7.462-7.464 4.12 0 7.463 3.343 7.463 7.464s-3.343 7.463-7.465 7.463z" />
+    </svg>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+</html>
